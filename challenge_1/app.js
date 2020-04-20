@@ -1,6 +1,9 @@
-const header = document.getElementById('header');
+const turn = document.getElementById('turn');
+const score = document.getElementById('score');
 let game = [];
 let player;
+let winner = 'X';
+let tally = {X: 0, O: 0}
 
 function clickCellHandler(event) {
   let cell = event.target;
@@ -14,10 +17,10 @@ function clickCellHandler(event) {
 let togglePlayer = () => {
   if (player === 'X') {
     player = 'O';
-    header.innerHTML = `Player O, it's your turn!`
+    turn.innerHTML = `Player O, it's your turn!`
   } else {
     player = 'X';
-    header.innerHTML = `Player X, it's your turn!`
+    turn.innerHTML = `Player X, it's your turn!`
   }
 }
 
@@ -62,8 +65,8 @@ let checkDiagonals = () => {
 }
 
 let declareVictory = (player, cell1, cell2, cell3) => {
-  header.style.color = 'red'
-  header.innerHTML = `Player ${player} won!`
+  turn.style.color = 'red'
+  turn.innerHTML = `Player ${player} won!`
 
 
   document.getElementById(cell1).style.color = 'red';
@@ -75,6 +78,8 @@ let declareVictory = (player, cell1, cell2, cell3) => {
     game[i] = 'game ended';
   }
 
+  winner = player;
+  tally[winner]++;
 }
 
 document.querySelectorAll('td').forEach(tableCell => {
@@ -87,9 +92,11 @@ let resetBoard = (event) => {
     document.getElementById(i).innerHTML = '';
     document.getElementById(i).style.color = 'gray';
   }
-  player = 'X';
-  header.style.color = 'gray'
-  header.innerHTML = `Player X, it's your turn!`
+
+  player = winner;
+  turn.style.color = 'gray'
+  turn.innerHTML = `Player ${player}, it's your turn!`
+  score.innerHTML = `X\t${tally.X}:${tally.O}\tO`
 }
 
 document.getElementById('reset').addEventListener("click", resetBoard);

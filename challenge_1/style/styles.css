@@ -1,12 +1,12 @@
 body {
   background: url(/style/background.png);
-  padding: 100px;
+  padding: 40px;
 }
 
-header {
+h1 {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   font-family: 'Arial';
   font-weight: bold;
   font-size: 60px;
