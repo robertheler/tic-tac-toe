@@ -1,10 +1,14 @@
 // model
-let game = [];
-let winner = 'X';
-//let tally = {X: 0, O: 0};
-let player = 'X';
-let playerOne = {score: 0, name: 'X'};
-let playerTwo = {score: 0, name: 'O'};
+let game, winner, player, playerOne, playerTwo;
+initalize();
+
+function initalize () {
+  game = [];
+  winner = 'X';
+  player = 'X';
+  playerOne = {score: 0, name: prompt('Player one (X), please enter your name:', 'X')};
+  playerTwo = {score: 0, name: prompt('Player two (O), please enter your name:', 'O')};
+}
 
 //view
 const turn = document.getElementById('turn');
@@ -33,19 +37,20 @@ function resetBoard (event) {
   }
 
   player = winner;
-  turn.style.color = 'gray'
-  turn.innerHTML = `${playerOne.name}, it's your turn!`
-  score.innerHTML = `${playerOne.name} ${playerOne.score}:${playerTwo.score} ${playerTwo.name}`
+  turn.style.color = 'gray';
+  turn.innerHTML = winner === 'X' ? `${playerOne.name}, it's your turn!` : `${playerTwo.name}, it's your turn!`;
+  score.innerHTML = `${playerOne.name} ${playerOne.score}:${playerTwo.score} ${playerTwo.name}`;
+  document.getElementById('reset').blur();
 }
 
 
 togglePlayer = () => {
   if (player === 'X') {
     player = 'O';
-    turn.innerHTML = `${playerTwo.name}, it's your turn!`
+    turn.innerHTML = `${playerTwo.name}, it's your turn!`;
   } else {
     player = 'X';
-    turn.innerHTML = `${playerOne.name}, it's your turn!`
+    turn.innerHTML = `${playerOne.name}, it's your turn!`;
   }
 }
 
@@ -90,10 +95,19 @@ checkDiagonals = () => {
 }
 
 declareVictory = (player, cell1, cell2, cell3) => {
-  turn.style.color = 'red'
+  winner = player;
+  if(winner === 'X') {
+    turn.innerHTML = `${playerOne.name} won!`;
+    playerOne.score++;
+    //update score
+  } else {
+    turn.innerHTML = `${playerTwo.name} won!`;
+    playerTwo.score++;
+  }
+  score.innerHTML = `${playerOne.name} ${playerOne.score}:${playerTwo.score} ${playerTwo.name}`;
+  //turn.innerHTML = player === 'X' ? `${playerOne.name} won!` : `${playerTwo.name} won!`
 
-  turn.innerHTML = player === 'X' ? `${playerOne.name} won!` : `${playerTwo.name} won!`
-
+  turn.style.color = 'red';
   document.getElementById(cell1).style.color = 'red';
   document.getElementById(cell2).style.color = 'red';
   document.getElementById(cell3).style.color = 'red';
@@ -103,8 +117,7 @@ declareVictory = (player, cell1, cell2, cell3) => {
     game[i] = 'game ended';
   }
 
-  winner = player;
-  winner === 'X' ? playerOne.score++ : playerTwo.score++;
+  //winner === 'X' ? playerOne.score++ : playerTwo.score++;
 }
 
 
