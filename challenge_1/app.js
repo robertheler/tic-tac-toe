@@ -1,10 +1,8 @@
 const header = document.getElementById('header');
 let game = [];
-for (var i = 1; i <= 9; i++) {
-  game[i] = 'not played';
-}
-let player = 'X';
-function clickHandler(event) {
+let player;
+
+function clickCellHandler(event) {
   let cell = event.target;
   if (game[cell.id] === 'not played') {
     playCell(cell);
@@ -26,7 +24,7 @@ let togglePlayer = () => {
 let playCell = (cell) => {
   if (player === 'O') {
     game[cell.id] = 'O';
-    cell.Cr = 'black';
+    cell.style.color = 'black';
   } else {
     game[cell.id] = 'X';
   }
@@ -80,5 +78,19 @@ let declareVictory = (player, cell1, cell2, cell3) => {
 }
 
 document.querySelectorAll('td').forEach(tableCell => {
-  tableCell.addEventListener("click", clickHandler)
+  tableCell.addEventListener("click", clickCellHandler)
 });
+
+let resetBoard = (event) => {
+  for (var i = 1; i <= 9; i++) {
+    game[i] = 'not played';
+    document.getElementById(i).innerHTML = '';
+    document.getElementById(i).style.color = 'gray';
+  }
+  player = 'X';
+  header.style.color = 'gray'
+  header.innerHTML = `Player X, it's your turn!`
+}
+
+document.getElementById('reset').addEventListener("click", resetBoard);
+resetBoard();
