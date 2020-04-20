@@ -36,6 +36,7 @@ td {
   height: 100px;
 }
 
+
 td:hover {
   background-color: rgba(24, 26, 27, 0.685);
 }
