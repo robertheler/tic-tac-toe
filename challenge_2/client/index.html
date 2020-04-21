@@ -1,2 +1,16 @@
-
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSV Report Generator</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+  </head>
+  <body>
+    <form id="request" method="POST" action="http://127.0.0.1:3000/convert">
+      <label>Paste JSON below:</label><br>
+      <textarea id="textarea" rows="10" cols="100"></textarea><br>
+      <input type="submit" value="Convert"><br>
+    </form>
+    <textarea id="output" rows="10" cols="100"></textarea>
+    <script src="app.js"></script>
+  </body>
+</html>
