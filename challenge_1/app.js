@@ -6,8 +6,10 @@ function initalize () {
   obj.game = [];
   obj.winner = 'X';
   obj.player = 'X';
-  obj.playerOne = {score: 0, name: prompt('Player one (X), please enter your name:', 'X') || 'X'};
-  obj.playerTwo = {score: 0, name: prompt('Player two (O), please enter your name:', 'O') || 'O'};
+  obj.playerOne = {score: 0, name: 'Player 1'};
+  obj.playerTwo = {score: 0, name: 'Player 2'};
+  obj.playerOne.name = prompt(`Let's paly Tic-Tac-Toe! Player one (X), please enter your name:`, 'X');
+  obj.playerTwo.name = prompt(`Let's paly Tic-Tac-Toe! Player two (O), please enter your name:`, 'O');
   return obj
 }
 
@@ -17,6 +19,9 @@ const score = document.getElementById('score');
 
 //controller
 resetBoard();
+
+
+
 document.querySelectorAll('td').forEach(tableCell => {
   tableCell.addEventListener("click", (event) => {
     let cell = event.target;
@@ -53,6 +58,7 @@ togglePlayer = () => {
     state.player = 'X';
     turn.innerHTML = `${state.playerOne.name}, it's your turn!`;
   }
+  //document.getElementById('table').transform();
 }
 
 playCell = (cell) => {
@@ -63,7 +69,9 @@ playCell = (cell) => {
     state.game[cell.id] = 'X';
   }
   cell.innerHTML = state.player;
+
 }
+
 checkForVictory = () => {
   checkRows();
   checkColumns();
