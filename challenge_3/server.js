@@ -3,6 +3,7 @@ const app = express();
 const PORT  = 3000;
 //if you access http://127.0.0.1:3000/ from chrome it will serve index.html in /public
 //without it, http://127.0.0.1:3000 would still send a GET request to the server but nothing will be rendered
+//overrides the "/" get method in server.js
 app.use(express.static('public'));
 
 app.listen(PORT, () => console.log(`Server is listening on http://127.0.0.1:${PORT}`));
