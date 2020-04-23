@@ -19,11 +19,8 @@ body {
              -20px -20px 20px #0432b9;
 }
 
-.circle {
-  text-align: center;
-
+.emptyCircle {
   border-radius: 100px;
-  vertical-align: middle;
   background: #032b9e;
   box-shadow: inset 10px 10px 10px #022483,
               inset -10px -10px 10px #0432b9,
@@ -31,7 +28,8 @@ body {
               -5px -5px 10px #0432b9;
 }
 
-#_51 {
+.redCircle {
+  border-radius: 100px;
   background: #9e250e;
   box-shadow: inset 10px 10px 10px #831f0c,
               inset -10px -10px 10px #b92b10,
@@ -39,23 +37,9 @@ body {
               -5px -5px 10px #0432b9;
 }
 
-#_53 {
-  background: #9e250e;
-  box-shadow: inset 10px 10px 10px #831f0c,
-              inset -10px -10px 10px #b92b10,
-              5px 5px 10px #022483,
-              -5px -5px 10px #0432b9;
-}
 
-#_52 {
-  background: #d8b600;
-  box-shadow: inset 10px 10px 10px  #b39700,
-              inset -10px -10px 10px #fdd500,
-              5px 5px 10px #022483,
-              -5px -5px 10px #0432b9;
-}
-
-#_43 {
+.yellowCircle {
+  border-radius: 100px;
   background: #d8b600;
   box-shadow: inset 10px 10px 10px  #b39700,
               inset -10px -10px 10px #fdd500,
