@@ -1,3 +1,4 @@
+const db = require('./database.js');
 const express = require ('express');
 const cors = require ('cors');
 const app = express();
@@ -17,8 +18,20 @@ app.listen(PORT, () => console.log(`Server is listening on http://127.0.0.1:${PO
 
 app.post('/order', (req, res) => {
   console.log("POST/ request received");
-  console.log(req.body);
-  res.end();
+  let options = getOptions(req.body);
+
+  let query = `insert into orders (name, email, password, line1, line2, city, state, zipcode, card, expiration, cvv, billing) values (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )`;
+
+  db.connection.query(query, options, (err, result) => {
+    if (err) {
+      console.log('Database error!', err);
+      res.status(500).end(); //intrernal serevr error
+    } else {
+      console.log('Ordered added to the database!');
+      res.end();
+    }
+  })
+  //res.end();
 });
 
 app.get('/', (req, res) => {
@@ -26,3 +39,20 @@ app.get('/', (req, res) => {
   res.end();
 });
 
+let getOptions = (order) => {
+  let options = [];
+  options.push(order.user.name);
+  options.push(order.user.email);
+  options.push(order.user.password);
+  options.push(order.address.line1);
+  options.push(order.address.line2);
+  options.push(order.address.city);
+  options.push(order.address.state);
+  options.push(order.address.zipcode);
+  options.push(order.payment.card);
+  options.push(order.payment.expiration);
+  options.push(order.payment.cvv);
+  options.push(order.payment.billing);
+
+  return options;
+}

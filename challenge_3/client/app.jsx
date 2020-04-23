@@ -37,7 +37,7 @@ class Purchase extends React.Component {
         <div>City: {this.props.address.city}</div>
         <div>State: {this.props.address.state}</div>
         <div>Credit Card: {this.props.payment.card}</div>
-        <div>Expiration Date: {this.props.payment.card}</div>
+        <div>Expiration Date: {this.props.payment.expiration}</div>
         <div>CVV: {this.props.payment.cvv}</div>
         <div>Billing Zip Code: {this.props.payment.billing}</div>
         <input type="submit" value="Confirm order!" />
