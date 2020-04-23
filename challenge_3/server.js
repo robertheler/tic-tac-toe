@@ -25,7 +25,7 @@ app.post('/order', (req, res) => {
   db.connection.query(query, options, (err, result) => {
     if (err) {
       console.log('Database error!', err);
-      res.status(500).end(); //intrernal serevr error
+      res.status(500); //intrernal server error
     } else {
       console.log('Ordered added to the database!');
       res.end();

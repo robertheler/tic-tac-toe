@@ -22,7 +22,7 @@ class Purchase extends React.Component {
       ReactDOM.render(<StartCheckout />, document.getElementById('app'));
     })
     .catch((error) => {
-      window.alert('Error with your order', error);
+      window.alert('Error with your order');
     })
   }
 
