@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 body {
-  background:  #032b9e;
+  background: url('background.png');
   padding-top: 100px;
 }
 
@@ -19,6 +19,7 @@ body {
 #first {
   text-align:center;
   font-size: 60px;
+  font-weight: bold;
   color: #9e250e;
   font-family: 'Roboto', sans-serif;
 }
@@ -38,8 +39,7 @@ body {
   grid-template-rows: repeat(6, 100px);
   grid-gap: 10px 20px;
   padding: 30px;
-  box-shadow:  20px 20px 20px #022483,
-             -20px -20px 20px #0432b9;
+  box-shadow:  20px 20px 50px black;
 }
 
 #buttonDiv {
@@ -47,14 +47,15 @@ body {
 }
 button {
   width: 300px;
-  color: whitesmoke;
+  color: black;
   height: 100px;
   border: none;
   font-size: 60px;
+  font-family: 'Roboto', sans-serif;
   border-radius: 100px;
   background-color: #032b9e;
-  box-shadow:  20px 20px 20px #022483,
-             -20px -20px 20px #0432b9;
+  box-shadow:
+        20px 20px 50px black;
 
 }
 #turn {
@@ -66,9 +67,8 @@ button {
 
 #color0 {
   border-radius: 100px;
-  background: #032b9e;
-  box-shadow: inset 10px 10px 10px #022483,
-              inset -10px -10px 10px #0432b9,
+  background: url('background.png');
+  box-shadow:
               5px 5px 10px #022483,
               -5px -5px 10px #0432b9;
 }
