@@ -1,13 +1,36 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+
 body {
   background:  #032b9e;
-  padding: 40px;
+  padding-top: 100px;
 }
 
 #app {
   text-align: center;
 }
+.welcome {
+  text-align:center;
+  font-size: 60px;
+  color: whitesmoke;
+  font-family: 'Rubik', sans-serif;
+}
 
+#first {
+  text-align:center;
+  font-size: 60px;
+  color: #9e250e;
+  font-family: 'Rubik', sans-serif;
+}
+
+#second {
+  text-align:center;
+  font-size: 60px;
+  color: #d8b600;
+  font-family: 'Rubik', sans-serif;
+}
 .board {
+  margin-top: 100px;
   background-color: #032b9e;
   border-radius: 30px;
   display: inline-grid;
@@ -19,7 +42,28 @@ body {
              -20px -20px 20px #0432b9;
 }
 
-.emptyCircle {
+#buttonDiv {
+  text-align:center;
+}
+button {
+  width: 300px;
+  height: 100px;
+  border: none;
+  font-size: 60px;
+  border-radius: 100px;
+  background-color: #032b9e;
+  box-shadow:  20px 20px 20px #022483,
+             -20px -20px 20px #0432b9;
+
+}
+#turn {
+  text-align:center;
+  font-size: 60px;
+  color: whitesmoke;
+  font-family: 'Rubik', sans-serif;
+}
+
+#color0 {
   border-radius: 100px;
   background: #032b9e;
   box-shadow: inset 10px 10px 10px #022483,
@@ -28,7 +72,9 @@ body {
               -5px -5px 10px #0432b9;
 }
 
-.redCircle {
+
+
+#color1 {
   border-radius: 100px;
   background: #9e250e;
   box-shadow: inset 10px 10px 10px #831f0c,
@@ -38,7 +84,7 @@ body {
 }
 
 
-.yellowCircle {
+#color2 {
   border-radius: 100px;
   background: #d8b600;
   box-shadow: inset 10px 10px 10px  #b39700,
