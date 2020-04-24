@@ -47,6 +47,7 @@ body {
 }
 button {
   width: 300px;
+  color: whitesmoke;
   height: 100px;
   border: none;
   font-size: 60px;
